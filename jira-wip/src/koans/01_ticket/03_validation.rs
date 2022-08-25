@@ -24,7 +24,16 @@ struct Ticket {
 /// We will learn a better way to handle recoverable errors such as this one further along,
 /// but let's rely on panic for the time being.
 fn create_ticket(title: String, description: String, status: Status) -> Ticket {
-    todo!()
+    let titleLength = title.len();
+    let descLength: usize = description.len();
+
+    if titleLength == 0 || titleLength > 51 {
+        panic!()
+    } else if descLength == 0 || descLength > 3000 {
+        panic!()
+    }
+
+    return Ticket {title: title, description: description, status: status}
 }
 
 #[cfg(test)]
