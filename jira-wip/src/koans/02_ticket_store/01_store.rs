@@ -40,11 +40,14 @@ impl TicketStore {
     /// We take `&mut self` because we will have to mutate our HashMap to insert a new
     /// key-value pair.
     pub fn save(&mut self, ticket: Ticket, id: u32) {
-        todo!()
+        self.data.insert(id, ticket);
     }
 
     pub fn get(&self, id: &u32) -> &Ticket {
-        todo!()
+        match self.data.get(id) {
+            Some(ticket) => ticket,
+            None => panic!()
+        }
     }
 }
 

@@ -31,7 +31,15 @@ impl TicketStore {
 
     pub fn save(&mut self, ticket: Ticket) -> TicketId {
         let id = self.generate_id();
-        self.data.insert(id, ticket);
+        let new_ticket = Ticket {
+            title: ticket.title,
+            description: ticket.description,
+            status: ticket.status,
+            _id: Some(id),
+            _created_at: Some(Utc::now())
+        };
+
+        self.data.insert(id, new_ticket);
         id
     }
 
@@ -50,6 +58,8 @@ pub struct Ticket {
     title: String,
     description: String,
     status: Status,
+    _id: Option<TicketId>,
+    _created_at: Option<DateTime<Utc>>
 }
 
 impl Ticket {
@@ -66,13 +76,13 @@ impl Ticket {
     }
 
     // The datetime when the ticket was saved in the store, if it was saved.
-    pub fn created_at(&self) -> __ {
-        todo!()
+    pub fn created_at(&self) -> Option<DateTime<Utc>> {
+        self._created_at
     }
 
     // The id associated with the ticket when it was saved in the store, if it was saved.
-    pub fn id(&self) -> __ {
-        todo!()
+    pub fn id(&self) -> Option<TicketId> {
+        self._id
     }
 }
 
@@ -91,6 +101,8 @@ pub fn create_ticket(title: String, description: String, status: Status) -> Tick
         title,
         description,
         status,
+        _id: None,
+        _created_at: None
     }
 }
 
@@ -115,7 +127,7 @@ mod tests {
         let ticket_id = store.save(ticket.clone());
         let retrieved_ticket = store.get(&ticket_id).unwrap();
 
-        assert_eq!(Some(&ticket_id), retrieved_ticket.id());
+        assert_eq!(Some(ticket_id), retrieved_ticket.id());
         assert_eq!(&ticket.title, retrieved_ticket.title());
         assert_eq!(&ticket.description, retrieved_ticket.description());
         assert_eq!(&ticket.status, retrieved_ticket.status());

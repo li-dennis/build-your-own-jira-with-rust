@@ -1,10 +1,12 @@
+use super::derive;
+
 /// We have come quite a long way now: from how to define a struct to traits and derive macros,
 /// touching on tests, module system, visibility, ownership and method syntax.
 /// Take a deep breath, stretch a bit, review what we have done.
 ///
 /// Then get ready to dive in the next section!
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Clone)]
 pub enum Status {
     ToDo,
     InProgress,
@@ -12,6 +14,7 @@ pub enum Status {
     Done,
 }
 
+#[derive(PartialEq, Clone, Debug)]
 pub struct Ticket {
     title: String,
     description: String,
@@ -54,7 +57,7 @@ pub fn create_ticket(title: String, description: String, status: Status) -> Tick
 mod tests {
     #[test]
     fn the_next_step_of_your_journey() {
-        let i_am_ready_to_continue = __;
+        let i_am_ready_to_continue = true;
 
         assert!(i_am_ready_to_continue);
     }

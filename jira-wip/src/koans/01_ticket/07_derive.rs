@@ -19,7 +19,7 @@
 /// ```
 ///
 /// PartialEq is not the only trait whose implementation can be derived automatically!
-#[derive(PartualEq)]
+#[derive(PartialEq, Debug)]
 pub enum Status {
     ToDo,
     InProgress,

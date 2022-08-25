@@ -23,3 +23,36 @@ mod traits;
 #[path = "koans/01_ticket/07_derive.rs"]
 mod derive;
 
+#[path = "koans/01_ticket/08_recap.rs"]
+mod recap;
+
+#[path = "koans/02_ticket_store/01_store.rs"]
+mod store;
+
+#[path = "koans/02_ticket_store/02_option.rs"]
+mod option;
+
+#[path = "koans/02_ticket_store/03_id_generation.rs"]
+mod id_generation;
+
+#[path = "koans/02_ticket_store/04_metadata.rs"]
+mod metadata;
+
+#[path = "koans/02_ticket_store/05_type_as_constraints.rs"]
+mod type_as_constraints;
+
+#[path = "koans/02_ticket_store/06_result.rs"]
+mod result;
+
+#[path = "koans/02_ticket_store/07_vec.rs"]
+mod vec;
+
+#[path = "koans/02_ticket_store/08_delete_and_update.rs"]
+mod delete_and_update;
+
+#[path = "koans/02_ticket_store/09_store_recap.rs"]
+mod store_recap;
+
+#[path = "koans/03_cli/00_cli.rs"]
+mod cli;
+

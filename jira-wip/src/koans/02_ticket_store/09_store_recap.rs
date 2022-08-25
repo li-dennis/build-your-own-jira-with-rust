@@ -195,7 +195,7 @@ impl Ticket {
 mod tests {
     #[test]
     fn the_next_step_of_your_journey() {
-        let i_am_ready_to_continue = __;
+        let i_am_ready_to_continue = true;
 
         assert!(i_am_ready_to_continue);
     }

@@ -19,6 +19,7 @@ pub type TicketId = u32;
 // Feel free to add more fields to `TicketStore` to solve this koan!
 struct TicketStore {
     data: HashMap<TicketId, Ticket>,
+    _counter: TicketId,
 }
 
 impl TicketStore {
@@ -26,6 +27,7 @@ impl TicketStore {
     {
         TicketStore {
             data: HashMap::new(),
+            _counter: 0,
         }
     }
 
@@ -55,8 +57,9 @@ impl TicketStore {
         self.data.get(id)
     }
 
-    fn generate_id(__) -> TicketId {
-        todo!()
+    fn generate_id(&mut self) -> TicketId {
+        self._counter += 1;
+        return self._counter
     }
 }
 
